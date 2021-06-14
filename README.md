@@ -75,3 +75,7 @@
 - :book: 위시리스트 API 기능 개발
 - :swimmer: 여행 API 기능 개발
 - :computer: AWS EC2, RDS 서버 관리
+
+### :rocket: 사용한 외부 API
+- :mailbox: nodeMailer
+- :earth_americas: node-Geocoder
