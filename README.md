@@ -58,7 +58,6 @@
       ├── 📄wishListRoute.js
       ├── 📄wishListService.js
 📄 .gitignore
-📄 CREATE-TABLES.txt
 📄 README.md
 📄 index.js
 📄 package.json
