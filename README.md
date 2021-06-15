@@ -71,9 +71,9 @@
 ![dd](https://user-images.githubusercontent.com/63203480/121947822-76ae0480-cd91-11eb-8cb5-8c616af2d4f8.PNG)
 
 ### :exclamation: Role
-- :mountain_bicyclist: 숙소 API 기능 개발
-- :book: 위시리스트 API 기능 개발
-- :swimmer: 여행 API 기능 개발
+- :mountain_bicyclist: 숙소 기능 API 개발
+- :book: 위시리스트 기능 API 개발
+- :swimmer: 여행 기능 API 개발
 - :computer: AWS EC2, RDS 서버 관리
 
 ### :rocket: 사용한 외부 API
