@@ -80,3 +80,7 @@
 ### :rocket: 사용한 외부 API
 - :mailbox: nodeMailer
 - :earth_americas: node-Geocoder
+
+### :clipboard: 아키텍처
+![아키텍처](https://user-images.githubusercontent.com/63203480/122184639-613af680-cec7-11eb-8cd1-d99b8c7a70d1.PNG)
+
