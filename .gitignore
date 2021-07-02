@@ -1,0 +1,9 @@
+config/secret.js
+config/email.js
+config/database.js
+config/resEmail.js
+config/googleMap.js
+.idea/*
+node_modules/*
+package-lock.json
+log/*
