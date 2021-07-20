@@ -85,7 +85,7 @@ exports.postEmailUsers = async function(req, res) {
     /*
         Body : email
     */
-    var {name, lastName, birthday, email, password} = req.body;
+    let {name, lastName, birthday, email, password} = req.body;
 
 
     if (!name) {
@@ -98,8 +98,8 @@ exports.postEmailUsers = async function(req, res) {
 
     // TODO: birthday - 18세 이상의 성인만 가입 가능
     const birthdaySplit = birthday.split("-"); // 생일 split
-    var now = new Date();	// 현재 날짜 및 시간
-    var nowYear = now.getFullYear();	// 현재 연도
+    let now = new Date();	// 현재 날짜 및 시간
+    let nowYear = now.getFullYear();	// 현재 연도
     
     if (nowYear-birthdaySplit[0]+1 < 18){
         return res.send(response(baseResponse.SIGNUP_BIRTHDAY_ERROR_TYPE));
@@ -131,7 +131,6 @@ exports.postEmailUsers = async function(req, res) {
     );
 
     return res.send(signUpResponse);
-
 };
 
 /*

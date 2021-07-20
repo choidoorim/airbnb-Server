@@ -47,13 +47,16 @@ exports.createEmailUser = async function (name, lastName, birthday, email, passw
         if (emailRows.length > 0)
             return errResponse(baseResponse.SIGNUP_REDUNDANT_EMAIL);
 
-        // 비밀번호 암호화
+        // 비밀번호 암호화 방법 수정(hashed + salt). 2021.07.20
+        const salt  = await crypto
+            .randomBytes(32)
+            .toString("base64")
         const hashedPassword = await crypto
-            .createHash("sha512")
-            .update(password)
-            .digest("hex");
+            .pbkdf2Sync(password, salt, 1, 32, 'sha512')
+            .toString('base64')
 
-        const insertUserInfoParams = [name, lastName, birthday, email, hashedPassword];
+
+        const insertUserInfoParams = [name, lastName, birthday, email, hashedPassword, salt];
 
         const connection = await pool.getConnection(async (conn) => conn);
         const userIdResult = await userDao.insertEmailUser(connection, insertUserInfoParams);
@@ -199,25 +202,22 @@ exports.postPhoneSignIn = async function (phoneNumber) {
 
 exports.postEmailSignIn = async function (email, password) {
     try {
-        // 이메일 존재 여부 확인
+        // 이메일 존재 여부 확인, salt 값 획득
         const emailRows = await userProvider.emailCheck(email);
         if (emailRows.length < 1) return errResponse(baseResponse.SIGNIN_EMAIL_WRONG);
 
-        const selectEmail = emailRows[0].email
+        const selectEmail = emailRows[0].email;
+        const salt = emailRows[0].salt;
+        const dbPassword = emailRows[0].password;
 
         // 비밀번호 확인
         const hashedPassword = await crypto
-            .createHash("sha512")
-            .update(password)
-            .digest("hex");
+            .pbkdf2Sync(password, salt, 1, 32, 'sha512')
+            .toString('base64');
 
-        const selectUserPasswordParams = [selectEmail, hashedPassword];
-        const passwordRows = await userProvider.passwordCheck(selectUserPasswordParams);
-
-        //console.log(passwordRows[0].password);
-        //console.log(hashedPassword);
-
-        if (passwordRows[0].password !== hashedPassword) {
+        console.log(dbPassword)
+        console.log(hashedPassword)
+        if (dbPassword !== hashedPassword) {
             return errResponse(baseResponse.SIGNIN_PASSWORD_WRONG);
         }
 

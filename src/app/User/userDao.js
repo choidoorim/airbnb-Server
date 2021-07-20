@@ -15,8 +15,8 @@ async function insertPhoneUser(connection, insertUserParams) {
 // 이메일로 회원가입
 async function insertEmailUser(connection, insertUserParams) {
   const insertUserQuery = `
-      INSERT INTO UserTB(name, lastName, birthday, email, password)
-      VALUES (?, ?, ?, ?, ?);
+      INSERT INTO UserTB(name, lastName, birthday, email, password, salt)
+      VALUES (?, ?, ?, ?, ?, ?);
   `;
   const insertUserRow = await connection.query(
       insertUserQuery,
@@ -60,7 +60,7 @@ async function updateUser(connection, userIdx, name, lastName, birthday, email) 
 // 이메일로 회원 조회
 async function selectUserEmail(connection, email) {
   const selectUserEmailQuery = `
-                SELECT email, idx
+                SELECT email, idx, salt, password
                 FROM UserTB 
                 WHERE email = ?;
                 `;

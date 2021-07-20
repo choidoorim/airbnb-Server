@@ -65,6 +65,7 @@ exports.passwordCheck = async function (selectUserPasswordParams) {
   return passwordCheckResult[0];
 };
 
+
 // 유저 있는지 확인
 exports.checkUsers = async function (userIdx) {
   const connection = await pool.getConnection(async (conn) => conn);
