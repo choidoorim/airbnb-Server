@@ -77,8 +77,8 @@
 - :swimmer: 여행 기능 API 개발
 - :computer: AWS EC2, RDS 서버 관리
 - :pencil: Refactoring
-  - 비밀번호 암호화 방법 수정(hashed -> hashed + salt)
-  - 이메일 로그인 로직 수정 : (DB의 salt 값 활용)
+  - 비밀번호 암호화 방법 수정 : hashed -> hashed + salt
+  - 이메일 로그인 로직 수정 : DB의 salt 값 활용
 
 ### :rocket: 사용한 외부 API
 - :mailbox: nodeMailer
