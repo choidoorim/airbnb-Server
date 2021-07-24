@@ -110,7 +110,17 @@ exports.updateRoomReservation = async function(userIdx, reservationIdx) {
 exports.insertUserReviews = async function(contents, userIdx, roomIdx, accuracyGrade, communicationGrade, checkinGrade, cleanlinessGrade, locationGrade, priceSatisfactionGrade) {
     const connection = await pool.getConnection(async (conn) => conn);
     try {
-        const insertInfo = [contents, userIdx, roomIdx, accuracyGrade, communicationGrade, checkinGrade, cleanlinessGrade, locationGrade, priceSatisfactionGrade];
+        const insertInfo = [
+            contents,
+            userIdx,
+            roomIdx,
+            accuracyGrade,
+            communicationGrade,
+            checkinGrade,
+            cleanlinessGrade,
+            locationGrade,
+            priceSatisfactionGrade
+        ];
 
         const checkReservation = await roomProvider.checkUserReservations(userIdx, roomIdx);
         if(checkReservation.length === 0) return errResponse(baseResponse.RESERVATION_NOT_EXIST);
