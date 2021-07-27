@@ -67,7 +67,7 @@
 ### :bar_chart: ERD 설계
 - AqueryTool Link: URL : https://aquerytool.com/aquerymain/index/?rurl=f17ec6fa-037e-4891-bb83-01f380b936f5&
 - AqueryTool Password : m87261
-- 본 ERD 설계는 에어비앤비와는 
+- 본 ERD 설계는 실제 에어비앤비와는 무관합니다
 
 ![dd](https://user-images.githubusercontent.com/63203480/121947822-76ae0480-cd91-11eb-8cb5-8c616af2d4f8.PNG)
 
