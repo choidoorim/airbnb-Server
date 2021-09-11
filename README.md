@@ -84,6 +84,10 @@
 ### :rocket: 사용한 외부 API
 - :mailbox: nodeMailer
 - :earth_americas: node-Geocoder
+- ☎️ NCP Simple & Easy Notification Service
+- 🌱 Naver Developers 네이버 로그인
+- ✨ Kakao Developers 카카오 로그인
+- 🌐 Google Developers 구글 로그인
 
 ### :clipboard: Architecture
 ![아키텍처](https://user-images.githubusercontent.com/63203480/122184639-613af680-cec7-11eb-8cd1-d99b8c7a70d1.PNG)
